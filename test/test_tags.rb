@@ -125,7 +125,7 @@ CONTENT
         assert_match %r{<em>FINISH HIM</em>}, @result
       end
     end
-    
+
     context "using Redcarpet" do
       setup do
         create_post(@content, 'markdown' => 'redcarpet')

@@ -310,7 +310,7 @@ class TestPost < Test::Unit::TestCase
         assert post.tags.include?('cooking')
         assert post.tags.include?('pizza')
       end
-      
+
       should "recognize empty tag in yaml" do
         post = setup_post("2009-05-18-empty-tag.textile")
         assert_equal [], post.tags
@@ -398,46 +398,46 @@ class TestPost < Test::Unit::TestCase
       assert_equal ['foo'], post.categories
     end
   end
-  
+
   context "converter file extension settings" do
     setup do
       stub(Jekyll).configuration { Jekyll::DEFAULTS }
       @site = Site.new(Jekyll.configuration)
     end
-    
+
     should "process .md as markdown under default configuration" do
       post = setup_post '2011-04-12-md-extension.md'
       conv = post.converter
       assert conv.kind_of? Jekyll::MarkdownConverter
     end
-    
+
     should "process .text as indentity under default configuration" do
       post = setup_post '2011-04-12-text-extension.text'
       conv = post.converter
       assert conv.kind_of? Jekyll::IdentityConverter
     end
-    
+
     should "process .text as markdown under alternate configuration" do
       @site.config['markdown_ext'] = 'markdown,mdw,mdwn,md,text'
       post = setup_post '2011-04-12-text-extension.text'
       conv = post.converter
       assert conv.kind_of? Jekyll::MarkdownConverter
     end
-    
+
     should "process .md as markdown under alternate configuration" do
       @site.config['markdown_ext'] = 'markdown,mkd,mkdn,md,text'
       post = setup_post '2011-04-12-text-extension.text'
       conv = post.converter
       assert conv.kind_of? Jekyll::MarkdownConverter
     end
-    
+
     should "process .text as textile under alternate configuration" do
       @site.config['textile_ext'] = 'textile,text'
       post = setup_post '2011-04-12-text-extension.text'
       conv = post.converter
       assert conv.kind_of? Jekyll::TextileConverter
     end
-    
+
   end
-  
+
 end

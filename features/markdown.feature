@@ -27,4 +27,3 @@ Feature: Markdown
     Then the _site directory should exist
     And I should see "Index" in "_site/index.html"
     And I should see "<h1 id='my_title'>My Title</h1>" in "_site/index.html"
-    

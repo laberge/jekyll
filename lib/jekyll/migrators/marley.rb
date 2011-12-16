@@ -9,7 +9,7 @@ module Jekyll
         :title_with_date => /^#\s*(.*)\s+\(([0-9\/]+)\)$/,
         :published_on => /.*\s+\(([0-9\/]+)\)$/,
         :perex => /^([^\#\n]+\n)$/,
-        :meta  => /^\{\{\n(.*)\}\}\n$/mi # Multiline Regexp 
+        :meta  => /^\{\{\n(.*)\}\}\n$/mi # Multiline Regexp
       }
     end
 
@@ -26,7 +26,7 @@ module Jekyll
         file_content  = File.read(f)
         meta_content  = file_content.slice!( self.regexp[:meta] )
         body          = file_content.sub( self.regexp[:title], '').sub( self.regexp[:perex], '').strip
-   
+
         title = file_content.scan( self.regexp[:title] ).first.to_s.strip
         prerex = file_content.scan( self.regexp[:perex] ).first.to_s.strip
         published_on = DateTime.parse( post[:published_on] ) rescue File.mtime( File.dirname(f) )
@@ -37,7 +37,7 @@ module Jekyll
         formatted_date = published_on.strftime('%Y-%m-%d')
         post_name =  File.dirname(f).split(%r{/}).last.gsub(/\A\d+-/, '')
 
-        name = "#{formatted_date}-#{post_name}" 
+        name = "#{formatted_date}-#{post_name}"
         File.open("_posts/#{name}.markdown", "w") do |f|
           f.puts meta.to_yaml
           f.puts "---\n"
