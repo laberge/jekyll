@@ -188,7 +188,7 @@ module Jekyll
 
       do_layout(payload, layouts)
     end
-    
+
     # Obtain destination path.
     #   +dest+ is the String path to the destination dir
     #

@@ -13,7 +13,7 @@ class TestRedcarpet < Test::Unit::TestCase
     should "pass redcarpet options" do
       assert_equal "<h1>Some Header</h1>", @markdown.convert('# Some Header #').strip
     end
-    
+
     should "pass redcarpet extensions" do
       assert_equal "<p>&ldquo;smart&rdquo;</p>", @markdown.convert('"smart"').strip
     end

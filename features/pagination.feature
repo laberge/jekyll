@@ -2,7 +2,7 @@ Feature: Site pagination
   In order to paginate my blog
   As a blog's user
   I want divide the posts in several pages
-  
+
   Scenario Outline: Paginate with N posts per page
     Given I have a configuration file with "paginate" set to "<num>"
     And I have a _layouts directory
@@ -19,7 +19,7 @@ Feature: Site pagination
     And the "_site/page<exist>/index.html" file should exist
     And I should see "<posts>" in "_site/page<exist>/index.html"
     And the "_site/page<not_exist>/index.html" file should not exist
-    
+
     Examples:
       | num | exist | posts | not_exist |
       | 1   | 4     | 1     | 5         |
